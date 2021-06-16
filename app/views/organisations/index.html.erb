@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Organisations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Organisation Name</th>
+      <th>Hourly Rate</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organisations.each do |organisation| %>
+      <tr>
+        <td><%= organisation.org_id %></td>
+        <td><%= organisation.org_name %></td>
+        <td><%= organisation.hourly_rate %></td>
+        <td><%= link_to 'Show', organisation %></td>
+        <td><%= link_to 'Edit', edit_organisation_path(organisation) %></td>
+        <td><%= link_to 'Delete', organisation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organisation', new_organisation_path %>
